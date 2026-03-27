@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX4ALL - Plataforma Educativa Inclusiva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Estilo para Marcos: Foco de teclado visible y Skip Link */
+        .nav-link:focus,
+        .btn:focus {
+            outline: 3px solid #0d6efd;
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            z-index: 10000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Estilo para Elena: Cards con elevación suave para jerarquía visual */
+        .card {
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Ajustes responsivos para Hero */
+        @media (max-width: 768px) {
+            .display-4 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <header>
+
+        <!-- Nav Menu -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">
+                    <i class="bi bi-universal-access-circle me-2"></i>UX4ALL
+                </a>
+
+                <!-- Nav Toggler-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navResponisve"
+                    aria-controls="navResponisve" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nav Bar -->
+                <div class="collapse navbar-collapse" id="navResponisve">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-lg-3" href="#cursos">Explorar Cursos</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex my-3 my-lg-0 w-100 mx-lg-3" style="max-width: 450px;" role="search">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="¿Qué quieres aprender?"
+                                aria-label="Buscar cursos">
+                            <button class="btn btn-primary" type="submit" aria-label="Buscar">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="d-flex flex-column flex-lg-row align-items-center gap-2">
+                        <a href="progreso.html" class="btn btn-warning px-4 w-100 w-lg-auto">Iniciar sesión</a>
+                        <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal"
+                            data-bs-target="#modalRegistro">
+                            Regístrate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+
+        <!-- Hero Section -->
+        <section class="py-5 text-center bg-white border-bottom" aria-labelledby="hero-title">
+            <div class="container py-5">
+                <h1 id="hero-title" class="display-4 fw-bold">Aprende sin barreras con UX4ALL</h1>
+                <p class="lead mx-auto mb-4" style="max-width: 700px;">
+                    La primera plataforma educativa diseñada para ser 100% inclusiva.
+                    Contenidos adaptados para estudiantes con diversas capacidades.
+                </p>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-primary btn-lg px-4" data-bs-toggle="modal"
+                        data-bs-target="#modalRegistro">
+                        Comenzar ahora
+                    </button>
+                    <a class="btn btn-outline-danger btn-lg px-4" href="leccion.html">Ver cursos</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Cursos Destacados -->
+        <section id="cursos" class="container py-5" aria-labelledby="cursos-destacados">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <h2 id="cursos-destacados" class="h3 fw-bold mb-1">Cursos destacados</h2>
+                    <p class="mb-0">Comienza tu camino hacia la inclusión digital.</p>
+                </div>
+                <a href="#" class="btn btn-outline-danger btn-md d-none d-md-block">Ver todos los cursos</a>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="card h-100 border-0 shadow-sm hover-shadow transition">
+                        <img src="https://placehold.co/300x200" class="card-img-top"
+                            alt="Miniatura del curso Diseño Accesible">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold mb-2">Fundamentos de Diseño Accesible</h3>
+                            <p class="small  mb-2">Por: María González</p>
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="text-warning me-2" aria-hidden="true">
+                                    <i class="bi bi-star-fill"></i> 4.8
+                                </span>
+                                <span class="small">(1,240 reseñas)</span>
+                            </div>
+                            <div class="fw-bold fs-5">Gratis</div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-primary btn-sm w-100">Saber más</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="card h-100 border-0 shadow-sm">
+                        <img src="https://placehold.co/300x200" class="card-img-top"
+                            alt="Miniatura del curso TDAH en el Aula">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold mb-2">Estrategias para TDAH en el Aula</h3>
+                            <p class="small mb-2">Por: Dr. Ricardo Soto</p>
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="text-warning me-2" aria-hidden="true">
+                                    <i class="bi bi-star-fill"></i> 4.9
+                                </span>
+                                <span class="small">(850 reseñas)</span>
+                            </div>
+                            <div class="fw-bold fs-5">$19.99</div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-primary btn-sm w-100">Saber más</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="card h-100 border-0 shadow-sm">
+                        <img src="https://placehold.co/300x200" class="card-img-top"
+                            alt="Miniatura del curso Lectores de Pantalla">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold mb-2">Dominando NVDA y JAWS</h3>
+                            <p class="small mb-2">Por: Juan Pérez</p>
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="text-warning me-2" aria-hidden="true">
+                                    <i class="bi bi-star-fill"></i> 4.7
+                                </span>
+                                <span class="small">(520 reseñas)</span>
+                            </div>
+                            <div class="fw-bold fs-5">$14.99</div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-primary btn-sm w-100">Saber más</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="card h-100 border-0 shadow-sm">
+                        <img src="https://placehold.co/300x200" class="card-img-top"
+                            alt="Miniatura del curso HTML5 Semántico">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold mb-2">HTML5 Semántico para UX</h3>
+                            <p class="small mb-2">Por: Lucía Torres</p>
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="text-warning me-2" aria-hidden="true">
+                                    <i class="bi bi-star-fill"></i> 5.0
+                                </span>
+                                <span class="small">(310 reseñas)</span>
+                            </div>
+                            <div class="fw-bold fs-5">Gratis</div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-primary btn-sm w-100">Saber más</a>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ¿Por qué elegir UX4ALL? -->
+        <section class="container py-5" aria-labelledby="features-title">
+            <h2 id="features-title" class="text-center mb-5">¿Por qué elegir UX4ALL?</h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+                <div class="col d-flex align-items-start">
+                    <div class="icon-square bg-light text-dark flex-shrink-0 me-3 p-3 rounded">
+                        <i class="bi bi-universal-access fs-2"></i>
+                    </div>
+                    <div>
+                        <h3 class="h4">Accesibilidad Total</h3>
+                        <p>Interfaces optimizadas para lectores de pantalla y navegación por teclado simplificada.</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex align-items-start">
+                    <div class="icon-square bg-light text-dark flex-shrink-0 me-3 p-3 rounded">
+                        <i class="bi bi-braces-asterisk fs-2"></i>
+                    </div>
+                    <div>
+                        <h3 class="h4">Diseño Sin Distracciones</h3>
+                        <p>Entornos de estudio limpios que facilitan la concentración y reducen la fatiga cognitiva.</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex align-items-start">
+                    <div class="icon-square bg-light text-dark flex-shrink-0 me-3 p-3 rounded">
+                        <i class="bi bi-check-circle fs-2"></i>
+                    </div>
+                    <div>
+                        <h3 class="h4">Aprendizaje Lineal</h3>
+                        <p>Rutas de aprendizaje claras y predecibles para que nunca pierdas el hilo de tu estudio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Registro -->
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white">
+                    <h2 class="modal-title h5 fw-bold" id="modalRegistroLabel">Crea tu cuenta en UX4ALL</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="formRegistro">
+                        <div class="mb-3">
+                            <label for="nombreRegistro" class="form-label small fw-bold">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombreRegistro"
+                                placeholder="Ej: Elena Castillo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailRegistro" class="form-label small fw-bold">Correo electrónico</label>
+                            <input type="email" class="form-control" id="emailRegistro" placeholder="nombre@ejemplo.com"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="passRegistro" class="form-label small fw-bold">Contraseña</label>
+                            <input type="password" class="form-control" id="passRegistro" minlength="8" required>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="terminos" required>
+                            <label class="form-check-label small" for="terminos">Acepto los términos y
+                                condiciones.</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Crear mi cuenta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h2 class="h5 fw-bold mb-4 text-primary">UX4ALL</h2>
+                    <p class="small text-white">
+                        Transformando la educación digital a través del diseño inclusivo y la accesibilidad universal.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h2 class="h6 fw-bold mb-4">Plataforma</h2>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Explorar
+                                Cursos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Metodología</a>
+                        </li>
+                        <li class="mb-2"><a href="#"
+                                class="text-white text-decoration-none small">Certificaciones</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Precios</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h2 class="h6 fw-bold mb-4">Ayuda y Soporte</h2>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Centro de
+                                Ayuda</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Declaración de
+                                Accesibilidad</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 small">
+                    <h2 class="h6 fw-bold mb-4">Contacto</h2>
+                    <p class="text-white mb-2"><i class="bi bi-house-door-fill me-2"></i> Santiago, Chile</p>
+                    <p class="text-white mb-2"><i class="bi bi-envelope-fill me-2"></i> soporte@ux4all.com</p>
+                    <p class="text-white"><i class="bi bi-telephone-fill me-2"></i> +56 2 2345 6789</p>
+                </div>
+            </div>
+
+            <hr class="mb-4 mt-5 border-secondary">
+
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p class="small text-white">
+                        © 2026 Copyright: <strong class="text-primary">UX4ALL</strong>. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <ul class="list-inline text-md-end mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white text-decoration-none small">Privacidad</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-white text-decoration-none small">Términos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
