@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX4ALL - Plataforma Educativa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+        }
+
+        /* Flexbox para empujar el footer al fondo */
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            z-index: 1030;
+        }
+
+        /* Contenedor principal que envuelve Sidebar y Content */
+        .wrapper {
+            display: flex;
+            flex: 1;
+            /* Ocupa todo el espacio disponible entre header y footer */
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #fff;
+            border-right: 1px solid #dee2e6;
+            padding: 1rem;
+            /* La barra lateral ya no es fixed, fluye con el contenedor */
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        /* Estilo para Marcos: Foco de teclado visible */
+        .nav-link:focus {
+            outline: 3px solid #0d6efd;
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            z-index: 10000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Footer de ancho completo */
+        footer {
+            width: 100%;
+            z-index: 1040;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="index.html">UX4ALL</a>
+
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-info btn-sm me-3" id="modoEnfoque" aria-pressed="false">
+                        <i class="bi bi-eye-slash"></i> Modo Enfoque
+                    </button>
+                    <div class="text-light me-3 d-none d-md-block">Elena</div>
+                    <i class="bi bi-person-circle text-light fs-4" aria-label="Perfil de usuario"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <nav class="sidebar d-none d-md-block" aria-label="Navegación principal">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link link-dark py-3">
+                        <i class="bi bi-speedometer2 me-2"></i> Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="progreso.html" class="nav-link link-dark py-3">
+                        <i class="bi bi-bar-chart-line me-2"></i> Mi Progreso
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link active py-3" aria-current="page">
+                        <i class="bi bi-journal-bookmark-fill me-2"></i> Mis Cursos
+                    </a>
+                </li>
+                <li>
+                    <a href="materiales.html" class="nav-link link-dark py-3">
+                        <i class="bi bi-cloud-download me-2"></i> Materiales (PDF)
+                    </a>
+                </li>
+
+                <hr>
+                <li>
+                    <a href="#" class="nav-link link-dark py-3">
+                        <i class="bi bi-question-circle me-2"></i> Ayuda Accesible
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main id="contenido-principal" class="main-content mb-5 pb-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="#">Mis Cursos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Lección 1: Introducción</li>
+                </ol>
+            </nav>
+
+            <h1 class="display-6 fw-bold mt-4">Lección 1: Diseño Centrado en el Usuario</h1>
+            <p class="lead">Aprende los fundamentos del DCU y cómo aplicarlos en entornos educativos inclusivos.</p>
+
+
+
+            <!-- Repoductor de video -->
+            <section class="card shadow-sm my-3 border-0 overflow-hidden" aria-labelledby="video-title">
+                <div class="card-body p-0 bg-dark text-center d-flex align-items-center justify-content-center"
+                    style="min-height: 400px; position: relative;">
+                    <button class="btn text-white p-0 border-0" aria-label="Reproducir video: Fundamentos del DCU">
+                        <i class="bi bi-play-circle-fill display-1 text-primary shadow-lg" style="opacity: 0.9;"></i>
+                        <p class="mt-3 text-light">Reproductor de video accesible.</p>
+                    </button>
+
+                    <div
+                        class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-dark d-flex align-items-center gap-3">
+                        <button class="btn btn-sm btn-link text-white p-0" aria-label="Pausa">
+                            <i class="bi bi-pause-fill fs-4"></i>
+                        </button>
+                        <div class="progress flex-grow-1" style="height: 5px;" role="progressbar"
+                            aria-label="Progreso del video" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-info" style="width: 0%"></div>
+                        </div>
+                        <button class="btn btn-sm btn-link text-white p-0" aria-label="Activar Audiodescripción">
+                            <i class="bi bi-ear-fill fs-5"></i>
+                        </button>
+                        <button class="btn btn-sm btn-link text-white p-0" aria-label="Pantalla completa">
+                            <i class="bi bi-fullscreen fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-footer bg-white py-3 d-flex justify-content-between align-items-center">
+                    <span class="small"><i class="bi bi-clock me-1"></i> Duración: 12:45 min</span>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-chat-left-text me-1"></i>
+                            Subtítulos</button>
+                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-speedometer2 me-1"></i>
+                            1x</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Barra de Progreso -->
+            <section>
+                <div class="col-12 col-xl-8">
+                    <section class="card border-0 shadow-sm p-4 h-100" aria-labelledby="progreso-titulo">
+                        <h2 id="progreso-titulo" class="h4 mb-4">Tu Progreso General</h2>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Curso: Diseño UX/UI</span>
+                                <span class="fw-bold">65% completado</span>
+                            </div>
+                            <div class="progress" style="height: 25px;" role="progressbar" aria-valuenow="65"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                    style="width: 65%">65%</div>
+                            </div>
+                        </div>
+                        <p class="small">Has completado 12 de 18 lecciones. ¡Sigue así!</p>
+                    </section>
+                </div>
+        </main>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h2 class="h5 fw-bold mb-4 text-primary">UX4ALL</h2>
+                    <p class="small text-white">
+                        Transformando la educación digital a través del diseño inclusivo y la accesibilidad universal.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h2 class="h6 fw-bold mb-4">Plataforma</h2>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Explorar
+                                Cursos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Metodología</a>
+                        </li>
+                        <li class="mb-2"><a href="#"
+                                class="text-white text-decoration-none small">Certificaciones</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Precios</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h2 class="h6 fw-bold mb-4">Ayuda y Soporte</h2>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Centro de
+                                Ayuda</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Declaración de
+                                Accesibilidad</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none small">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 small">
+                    <h2 class="h6 fw-bold mb-4">Contacto</h2>
+                    <p class="text-white mb-2"><i class="bi bi-house-door-fill me-2"></i> Santiago, Chile</p>
+                    <p class="text-white mb-2"><i class="bi bi-envelope-fill me-2"></i> soporte@ux4all.com</p>
+                    <p class="text-white"><i class="bi bi-telephone-fill me-2"></i> +56 2 2345 6789</p>
+                </div>
+            </div>
+
+            <hr class="mb-4 mt-5 border-secondary">
+
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p class="small text-white">
+                        © 2026 Copyright: <strong class="text-primary">UX4ALL</strong>. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <ul class="list-inline text-md-end mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white text-decoration-none small">Privacidad</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-white text-decoration-none small">Términos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
